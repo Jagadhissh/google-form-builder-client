@@ -1,14 +1,21 @@
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-type ErrorData = {
-  message?: string;
-  success?: boolean;
-};
+// type ErrorData = {
+//   message?: string;
+//   success?: boolean;
+// };
+
+// type ErrorResponse = {
+//   status?: number;
+//   data: ErrorData;
+// };
 
 type ErrorResponse = {
-  status?: number;
-  data: ErrorData;
+  status: number | "FETCH_ERROR" | "PARSING_ERROR" | "TIMEOUT_ERROR";
+  data?: unknown;
+  error?: string;
+  originalStatus?: number;
 };
 const ErrorMessage = ({ status, data }: ErrorResponse) => {
   return (

@@ -6,7 +6,6 @@ import React, { useEffect, useMemo } from "react";
 import { Button } from "../ui/button";
 import {
   ErrorResponse,
-  useCreateMutation,
   useFormQuery,
   useUpdateMutation,
 } from "../api/formsbuilder.api";
@@ -18,13 +17,12 @@ import ErrorMessage from "../shared/ErrorMessage";
 
 const EditForm = () => {
   const { formId } = useParams();
-  const {
-    data: formResponse,
-    isLoading: formLoading,
-    error: detailedFormError,
-  } = useFormQuery(formId, {
-    skip: !formId,
-  });
+  const { data: formResponse, error: detailedFormError } = useFormQuery(
+    formId,
+    {
+      skip: !formId,
+    }
+  );
 
   useEffect(() => {
     console.log("detailedFormError: ", detailedFormError);

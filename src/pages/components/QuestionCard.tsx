@@ -98,9 +98,9 @@ const QuestionCard = (props: QuestionCardProps) => {
         <section>
           <RadioGroup
             name="type"
-            onChange={(e) => {
-              // console.log("e", e);
-            }}
+            // onChange={() => {
+            //   // console.log("e", e);
+            // }}
             error={fieldErrorMessage}
           >
             <div className="flex flex-col gap-2">
