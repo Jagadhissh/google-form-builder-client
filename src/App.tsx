@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import AppHeader from "./shared/AppHeader";
 import { Toaster } from "./ui/toast/Toaster";
 
@@ -9,11 +9,16 @@ const Edit = lazy(() => import("./pages/Edit"));
 const ViewForm = lazy(() => import("./pages/ViewForm"));
 
 const PageLoaderUI = () => {
-  return <h1>Loading...</h1>;
+  return (
+    <div className=" flex  h-screen items-center justify-center text-violet-700">
+      Loading...
+    </div>
+  );
 };
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to={"/forms/all"} />} />
       <Route
         path="/forms/*"
         element={
