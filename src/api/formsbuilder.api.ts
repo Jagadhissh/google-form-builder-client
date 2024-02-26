@@ -31,7 +31,8 @@ export const formBuilderApi = createApi({
   reducerPath: "forms",
   tagTypes: ["Forms"],
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:3000`,
+    // baseUrl: `http://localhost:3000`,
+    baseUrl: `http://16.171.132.119`,
   }),
 
   endpoints: (builder) => ({
